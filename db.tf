@@ -6,7 +6,7 @@ resource "aws_subnet" "db" {
 
   tags   = "${merge(map(
     "Name", "${var.name}-db-${count.index}"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }
 
 resource "aws_route_table" "db" {
@@ -15,7 +15,7 @@ resource "aws_route_table" "db" {
 
   tags   = "${merge(map(
     "Name", "${var.name}-db"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }
 
 resource "aws_route_table_association" "db_subnets" {

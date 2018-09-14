@@ -3,7 +3,7 @@ resource "aws_internet_gateway" "igw" {
 
   tags   = "${merge(map(
     "Name", "${var.name}"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }
 
 resource "aws_subnet" "public" {
@@ -14,7 +14,7 @@ resource "aws_subnet" "public" {
 
   tags   = "${merge(map(
     "Name", "${var.name}-public-${count.index}"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }
 
 // Associate internet gateway with default vpc route table

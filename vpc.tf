@@ -8,5 +8,5 @@ resource "aws_vpc" "main" {
 
   tags   = "${merge(map(
     "Name", "${var.name}"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }

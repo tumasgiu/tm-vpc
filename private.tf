@@ -6,7 +6,7 @@ resource "aws_subnet" "private" {
 
   tags   = "${merge(map(
     "Name", "${var.name}-private-${count.index}"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }
 
 resource "aws_route_table" "private" {
@@ -15,7 +15,7 @@ resource "aws_route_table" "private" {
 
   tags   = "${merge(map(
     "Name", "${var.name}-private"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }
 
 resource "aws_route_table_association" "private_subnets" {

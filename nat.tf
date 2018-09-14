@@ -4,7 +4,7 @@ resource "aws_eip" "nat" {
 
   tags   = "${merge(map(
     "Name", "${var.name}-nat"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }
 
 resource "aws_nat_gateway" "nat" {
@@ -14,5 +14,5 @@ resource "aws_nat_gateway" "nat" {
 
   tags   = "${merge(map(
     "Name", "${var.name}"
-  ), ${var.tags})}"
+  ), var.tags)}"
 }
