@@ -49,5 +49,5 @@ output "db_subnets_route_table_id" {
 }
 
 output "internal_zone_id" {
-	value = "${aws_route53_zone.internal.id}"
+	value = "${join("", aws_route53_zone.internal.*.id)}"
 }
